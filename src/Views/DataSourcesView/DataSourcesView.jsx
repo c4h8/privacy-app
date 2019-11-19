@@ -22,7 +22,7 @@ const sources = [
 function DataSourceItem({ name, connected }) {
   return (
     <li class="list-group-item">
-      <p>{name}</p>
+      <h5>{name}</h5>
     </li>
   )
 }

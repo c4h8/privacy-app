@@ -4,7 +4,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 import MapContainer from './Components/MapContainer'
 import AppBar from './Components/AppBar'
@@ -17,7 +16,9 @@ function App() {
       <AppBar />
         <Switch>
           <Route path="/settings">
-            <DataSourceView />
+            <div className="row">
+              <DataSourceView />
+            </div>
           </Route>
           <Route exact path="/">
             <div className="row">

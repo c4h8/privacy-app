@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import MapContainer from './Components/MapContainer'
 import AppBar from './Components/AppBar'

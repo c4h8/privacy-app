@@ -1,53 +1,29 @@
-import  React from 'react';
+import  React, { useState } from 'react';
 import { connect } from 'react-redux';
-import {addService, removeService} from '../../actions'
+import { addService as _addService, removeService as _removeService } from '../../actions'
+import AddSourceModal from './AddSourceModal'
 
-const sources = [
-  {
-    name: 'facebook',
-    connected: false
-  },
-  {
-    name: 'google',
-    connected: false
-  },
-  {
-    name: 'joku palvelu',
-    connected: false
-  },
-  {
-    name: 'asdasdasd',
-    connected: false
-  },
-]
-
-function AddSourceButton(){
-  
-}
-
-function DataSourceItem({ name, connected, dispatch }) {
+function DataSourceItem({ name, connected, removeService }) {
   return (
     <li class="list-group-item">
       <h5>{name}</h5>
       connected: {connected ? ' yes' : ' no'}
-
-<button onClick={() => dispatch(removeService(name))}>remove</button>
-
-
+      <button onClick={() => removeService(name)}>remove</button>
     </li>
   )
 }
 
-function DataSourceList({connectedServices, dispatch}) {
+function DataSourceList({ connectedServices, addService, removeService }) {
+  const [modalOpen, setModalOpen] = useState(false)
+
   return (
     <div className="col-sm-12">
+      {modalOpen ? <AddSourceModal setModalOpen={setModalOpen} /> : null}
       <h3 className="my-4 d-inline-block">Connected Services</h3>
-      <button className="btn btn-success float-right">{' + Add serivce'}</button>
+      <button className="btn btn-success float-right" onClick={() => setModalOpen(!modalOpen)}>{' + Add serivce'}</button>
       <ul className="list-group list-group-flush">
-        {connectedServices.map(s => <DataSourceItem {...{name: s.name, connected: true, dispatch}} /> )}
+        {connectedServices.map(s => <DataSourceItem {...{name: s.name, connected: true, removeService}} /> )}
       </ul>
-      <button onClick={() => dispatch(addService('facebook'))}>add facebook</button>
-      <button onClick={() => dispatch(addService('google'))}>add google</button>
     </div>
   );
 }
@@ -56,4 +32,9 @@ const mapStateToProps = state => ({
   connectedServices: state.connectedServices
 })
 
-export default connect(mapStateToProps)(DataSourceList);
+const mapDistapchToProps = dispatch => ({
+  addService: (name) => dispatch(_addService(name)),
+  removeService: (name) => dispatch(_removeService(name))
+})
+
+export default connect(mapStateToProps, mapDistapchToProps)(DataSourceList);

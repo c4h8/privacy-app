@@ -5,7 +5,7 @@
 }
 
 .navbar-bs {
-  z-index: 9999;
+  z-index: 3;
   -webkit-box-shadow: 0px 10px 14px -10px rgba(0,0,0,0.46);
   -moz-box-shadow: 0px 10px 14px -10px rgba(0,0,0,0.46);
   box-shadow: 0px 10px 14px -10px rgba(0,0,0,0.46);

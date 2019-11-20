@@ -28,7 +28,7 @@ function DataSourceList({ connectedServices, addService, removeService }) {
   const [modalOpen, setModalOpen] = useState(false)
 
   return (
-    <div className="col-sm-12">
+    <div className="col-sm-12 px-4">
       {modalOpen ? <AddSourceModal setModalOpen={setModalOpen} /> : null}
       <div className="connected-services-header">
         <h4 className="my-4 d-inline-block">Connected Services</h4>
@@ -37,7 +37,7 @@ function DataSourceList({ connectedServices, addService, removeService }) {
           onClick={() => setModalOpen(!modalOpen)}
         >
          <Icon className="mr-2" name="plus circle" size="large" />
-          Add serivce
+          Add Service
         </button>
       </div>
       <ul className="list-group list-group-flush">

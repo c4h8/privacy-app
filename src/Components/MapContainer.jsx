@@ -3,7 +3,6 @@ import { Map, Marker, Popup, TileLayer, CircleMarker } from 'react-leaflet';
 import { connect } from 'react-redux';
 
 import iconMarker from './iconMarker';
-import coords from '../Data/coordArray';
 
 import 'leaflet/dist/leaflet.css';
 
@@ -30,14 +29,11 @@ function LocationMarker({pos}) {
 
 function MapWrapper({connectedServices}) {
   return(
-    <div className="col-sm-12 privacy-map-container">
+    <div className="col-sm-12 mx-0 privacy-map-container">
       <Map center={position} zoom={13} zoomControl={false}>
         <TileLayer
           {...mapProvider}
         />
-        {/* <CircleMarker center={position} color="red" radius={15}>
-
-        </CircleMarker> */}
         {connectedServices.map(service => service.positions.map(pos =>
           <Marker
             position={pos}

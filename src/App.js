@@ -12,21 +12,23 @@ import DataSourceView from './Views/DataSourcesView/DataSourcesView'
 function App() {
   return (
     <Router>
-      <div className="px-0 App container">
       <AppBar />
         <Switch>
           <Route path="/settings">
-            <div className="row">
-              <DataSourceView />
+            <div className="px-0 App container">
+              <div className="row">
+                <DataSourceView />
+              </div>
             </div>
           </Route>
           <Route exact path="/">
-            <div className="row">
-              <MapContainer />
+            <div className="px-0 App container-fluid">
+              <div className="row">
+                <MapContainer />
+              </div>
             </div>
           </Route>
         </Switch>
-      </div>
     </Router>
   );
 }

@@ -1,6 +1,6 @@
 import * as types from './actionTypes';
-import data from './Data/fakedata'
-import fakeData from './Data/fakedata';
+import data from './Data/locationData'
+import services from '.'
 
 const initialState = {
   connectedServices: []

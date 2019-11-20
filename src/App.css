@@ -10,3 +10,24 @@
   -moz-box-shadow: 0px 10px 14px -10px rgba(0,0,0,0.46);
   box-shadow: 0px 10px 14px -10px rgba(0,0,0,0.46);
 }
+
+.connected-services-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between
+}
+
+.service-item {
+  display: flex;
+  align-items: center;
+}
+
+.service-item > h5 {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+
+.connected-services-header > button {
+
+}

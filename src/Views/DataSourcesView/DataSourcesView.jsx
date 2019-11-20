@@ -2,13 +2,24 @@ import  React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { addService as _addService, removeService as _removeService } from '../../actions'
 import AddSourceModal from './AddSourceModal'
+import { Icon } from 'semantic-ui-react'
 
-function DataSourceItem({ name, connected, removeService }) {
+function DataSourceItem({ name, iconName, connected, removeService }) {
   return (
     <li class="list-group-item">
-      <h5>{name}</h5>
-      connected: {connected ? ' yes' : ' no'}
-      <button onClick={() => removeService(name)}>remove</button>
+      <div className="service-item">
+        <Icon circular className="mr-3" name={iconName} size="big" />
+        <h5>{name}</h5>
+        <button className="float-right" onClick={() => removeService(name)}>remove</button>
+      </div>
+    </li>
+  )
+}
+
+function NoDataSourcesItem({}) {
+  return (
+    <li class="list-group-item">
+      <p className="font-weight-light mr-3">No services connected</p>
     </li>
   )
 }
@@ -19,10 +30,24 @@ function DataSourceList({ connectedServices, addService, removeService }) {
   return (
     <div className="col-sm-12">
       {modalOpen ? <AddSourceModal setModalOpen={setModalOpen} /> : null}
-      <h3 className="my-4 d-inline-block">Connected Services</h3>
-      <button className="btn btn-success float-right" onClick={() => setModalOpen(!modalOpen)}>{' + Add serivce'}</button>
+      <div className="connected-services-header">
+        <h4 className="my-4 d-inline-block">Connected Services</h4>
+        <button 
+          className="btn btn-success float-right"
+          onClick={() => setModalOpen(!modalOpen)}
+        >
+         <Icon className="mr-2" name="plus circle" size="large" />
+          Add serivce
+        </button>
+      </div>
       <ul className="list-group list-group-flush">
-        {connectedServices.map(s => <DataSourceItem {...{name: s.name, connected: true, removeService}} /> )}
+        {connectedServices.map(s => 
+          <DataSourceItem 
+            key={s.name} 
+            {...{name: s.name, iconName: s.iconName, connected: true, removeService}} 
+          /> 
+        )}
+        {connectedServices.length === 0 ? <NoDataSourcesItem /> : null }
       </ul>
     </div>
   );

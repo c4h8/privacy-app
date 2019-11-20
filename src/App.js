@@ -8,6 +8,7 @@ import {
 import MapContainer from './Components/MapContainer'
 import AppBar from './Components/AppBar'
 import DataSourceView from './Views/DataSourcesView/DataSourcesView'
+import Login from './Views/LoginView.jsx'
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
             <div className="row">
               <MapContainer />
             </div>
+          </Route>
+          <Route exact path="/login">
+            <Login/>
           </Route>
         </Switch>
       </div>

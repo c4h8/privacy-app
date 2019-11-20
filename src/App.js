@@ -15,14 +15,14 @@ function App() {
       <AppBar />
         <Switch>
           <Route path="/settings">
-            <div className="px-0 App container">
+            <div className="App container">
               <div className="row">
                 <DataSourceView />
               </div>
             </div>
           </Route>
           <Route exact path="/">
-            <div className="px-0 App container-fluid">
+            <div className="App container-fluid">
               <div className="row">
                 <MapContainer />
               </div>

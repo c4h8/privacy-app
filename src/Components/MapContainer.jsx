@@ -29,7 +29,7 @@ function LocationMarker({pos}) {
 
 function MapWrapper({connectedServices}) {
   return(
-    <div className="col-sm-12 mx-0 privacy-map-container">
+    <div className="col-sm-12 px-0 privacy-map-container">
       <Map center={position} zoom={13} zoomControl={false}>
         <TileLayer
           {...mapProvider}

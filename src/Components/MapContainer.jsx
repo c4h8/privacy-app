@@ -1,7 +1,11 @@
 import  React from 'react';
-import 'leaflet/dist/leaflet.css';
 import { Map, Marker, Popup, TileLayer, CircleMarker } from 'react-leaflet';
+import { connect } from 'react-redux';
+
 import iconMarker from './iconMarker';
+import coords from '../Data/coordArray';
+
+import 'leaflet/dist/leaflet.css';
 
 const position = [60.2052, 24.6522]
 
@@ -15,7 +19,16 @@ const mapProvider = ({
 	ext: 'png'
 })
 
-function MapWrapper() {
+function LocationMarker({pos}) {
+  return (
+    <Marker
+      position={position}
+      icon={iconMarker}
+    />
+  );
+}
+
+function MapWrapper({connectedServices}) {
   return(
     <div className="col-sm-12 privacy-map-container">
       <Map center={position} zoom={13} zoomControl={false}>
@@ -25,15 +38,19 @@ function MapWrapper() {
         {/* <CircleMarker center={position} color="red" radius={15}>
 
         </CircleMarker> */}
-
-        <Marker
-          position={position}
-          icon={iconMarker}
-        />
-
+        {connectedServices.map(service => service.positions.map(pos =>
+          <Marker
+            position={pos}
+            icon={iconMarker}
+          />
+        ))}
       </Map>
     </div>
   );
 }
 
-export default MapWrapper
+const mapStateToProps = state => ({
+  connectedServices: state.connectedServices
+})
+
+export default connect(mapStateToProps)(MapWrapper);

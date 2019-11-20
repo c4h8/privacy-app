@@ -1,4 +1,6 @@
 import  React from 'react';
+import { connect } from 'react-redux';
+import {addService, removeService} from '../../actions'
 
 const sources = [
   {
@@ -19,22 +21,39 @@ const sources = [
   },
 ]
 
-function DataSourceItem({ name, connected }) {
+function AddSourceButton(){
+  
+}
+
+function DataSourceItem({ name, connected, dispatch }) {
   return (
     <li class="list-group-item">
       <h5>{name}</h5>
+      connected: {connected ? ' yes' : ' no'}
+
+<button onClick={() => dispatch(removeService(name))}>remove</button>
+
+
     </li>
   )
 }
 
-function DataSourceList() {
+function DataSourceList({connectedServices, dispatch}) {
   return (
     <div className="col-sm-12">
+      <h3 className="my-4 d-inline-block">Connected Services</h3>
+      <button className="btn btn-success float-right">{' + Add serivce'}</button>
       <ul className="list-group list-group-flush">
-        {sources.map(s => <DataSourceItem {...s} /> )}
+        {connectedServices.map(s => <DataSourceItem {...{name: s.name, connected: true, dispatch}} /> )}
       </ul>
+      <button onClick={() => dispatch(addService('facebook'))}>add facebook</button>
+      <button onClick={() => dispatch(addService('google'))}>add google</button>
     </div>
   );
 }
 
-export default DataSourceList;
+const mapStateToProps = state => ({
+  connectedServices: state.connectedServices
+})
+
+export default connect(mapStateToProps)(DataSourceList);

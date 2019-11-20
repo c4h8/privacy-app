@@ -9,7 +9,6 @@ const iconMarker = new L.Icon({
     shadowSize: null,
     shadowAnchor: null,
     iconSize: new L.Point(60, 75),
-
 });
 
 export default iconMarker;

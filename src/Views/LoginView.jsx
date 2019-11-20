@@ -1,21 +1,33 @@
-import  React from 'react';
+import  React, { useState } from 'react';
+import { Link } from 'react-router-dom'
 
 function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [linkState, setLinkState] = useState(false);
+
+  if (email !== '' && password !== '' && linkState !== true) {
+    setLinkState(true)
+  }
+
+console.log(linkState)
+
     return(
         <div className="container">
             <div className="row">
                 <div className="col-sm-6 col-md-4 col-md-offset-4">
-                    <h1 className="text-center login-title">
-                        Sign in to continue to Bootsnipp
-                    </h1>
-                    <div className="account-wall">
-                    <img className="profile-img" src={require("")} alt=""/>
-                    <form className="form-signin">
-                        <input type="password" className="form-control" placeholder="Password" required></input>
+                    <div className="account-wall"><form className="form-signin">
+                    <img className="profile-img" src={require("./google_avatar.png")}
+                    alt=""/>
+                        <input type="email" className="form-control" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)}></input>
+                        <input type="password" className="form-control" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)}></input>
+                        { linkState ? (
+                            <Link to="/">
                         <button className="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-                        <label className="checkbox pull-left">
-                            <input type="checkbox" value="remember-me"> Remember me</input>
-                        </label>
+                        </Link>
+                        ) : (
+                            <button className="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                        )}   
                         </form>
                     </div>
                 </div>

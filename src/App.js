@@ -36,7 +36,11 @@ function App() {
             </div>
           </Route>
           <Route exact path="/login">
-            <Login/>
+            <div className="App container-fluid">
+                <div className="row">
+                <Login/>
+                </div>
+            </div>
           </Route>
         </Switch>
     </Router>

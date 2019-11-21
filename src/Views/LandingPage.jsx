@@ -1,11 +1,15 @@
 import  React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Icon } from 'semantic-ui-react'
+import { useHistory  } from "react-router-dom";
 
-function LandingPageItem({description, image}) {
+function LandingPageItem({description, to, image, history}) {
   return (
     <div className="col-sm-6 col-md-4 col-lg-3 py-3 item-container">
-      <div className="landing-page-item">
+      <div 
+        className="landing-page-item"
+        onClick={() => history.push(to)}
+      >
         <div className="square-parent mx-5 mx-md-3">
           <img
             className="square-content"
@@ -19,6 +23,8 @@ function LandingPageItem({description, image}) {
 }
 
 function LandingPage({ hasConnectedServices }) {
+  const history = useHistory();
+
   return(
     <React.Fragment>
       {hasConnectedServices
@@ -35,12 +41,9 @@ function LandingPage({ hasConnectedServices }) {
       )}
       
       <div className="row" style={{justifyContent: 'space-between'}}>
-        <LandingPageItem description="eka itemi"/>
-        <LandingPageItem description="toka itemi"/>
-        <LandingPageItem description="toka itemi"/>
-        <LandingPageItem description="kolmas"/>
-        <LandingPageItem description="vika itemi"/>
-        <LandingPageItem description="toka itemi"/>
+        <LandingPageItem description="Connected Services" to="./connected-services" {...{history}}/>
+        <LandingPageItem description="Location Map" to="./location-map" {...{history}}/>
+        <LandingPageItem description="Profile" to="./profile" {...{history}}/>
       </div>
     </React.Fragment>
   )

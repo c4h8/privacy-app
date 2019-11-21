@@ -10,6 +10,7 @@ import AppBar from './Components/AppBar'
 import DataSourceView from './Views/DataSourcesView/DataSourcesView'
 import Login from './Views/LoginView.jsx'
 import LandingPage from './Views/LandingPage'
+import ProfileView from './Views/ProfileView/ProfileView'
 
 function App() {
   return (
@@ -30,9 +31,16 @@ function App() {
               </div>
             </div>
           </Route>
+          <Route path="/profile">
+            <div className="App container">
+              <div className="row">
+                <ProfileView />
+              </div>
+            </div>
+          </Route>
           <Route exact path="/">
             <div className="App container">
-                <LandingPage />
+              <LandingPage />
             </div>
           </Route>
         </Switch>

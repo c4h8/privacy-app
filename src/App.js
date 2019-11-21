@@ -8,6 +8,7 @@ import {
 import MapContainer from './Components/MapContainer'
 import AppBar from './Components/AppBar'
 import DataSourceView from './Views/DataSourcesView/DataSourcesView'
+import LandingPage from './Views/LandingPage'
 
 function App() {
   return (
@@ -19,6 +20,11 @@ function App() {
               <div className="row">
                 <DataSourceView />
               </div>
+            </div>
+          </Route>
+          <Route path="/landing-page">
+            <div className="App container">
+                <LandingPage />
             </div>
           </Route>
           <Route exact path="/">

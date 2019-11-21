@@ -33,6 +33,26 @@ function BugerMenu() {
               <Icon className="ml-3" name='map outline' />
             </NavLink>
           </li>
+          <li className="nav-item">
+            <NavLink 
+              exact to="/landing-page"
+              className="nav-link float-right"
+              onClick={() => setMenuOpen(false)}
+            >
+              Home
+              <Icon className="ml-3" name='home' />
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink 
+              exact to="/landing-page"
+              className="nav-link float-right"
+              onClick={() => setMenuOpen(false)}
+            >
+              Profile
+              <Icon className="ml-3" name='user outline' />
+            </NavLink>
+          </li>
         </ul>
       </div>
     </React.Fragment>

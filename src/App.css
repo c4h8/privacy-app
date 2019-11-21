@@ -27,6 +27,10 @@
   margin-bottom: 0 !important;
 }
 
+.location-details-list {
+  list-style-type: none;
+}
+
 
 .connected-services-header > button {
 

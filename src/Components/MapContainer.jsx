@@ -1,5 +1,5 @@
 import  React from 'react';
-import { Map, Marker, Popup, TileLayer, CircleMarker } from 'react-leaflet';
+import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 import { connect } from 'react-redux';
 
 import iconMarker from './iconMarker';
@@ -38,7 +38,16 @@ function MapWrapper({connectedServices}) {
           <Marker
             position={pos}
             icon={iconMarker}
-          />
+            key={`${service.name}-${pos[0]}`}
+          >          
+            <Popup direction="top">
+              <ul className="location-details-list m-0 p-0">
+                <li>Source: <span className="font-weight-bold">{service.name}</span></li>
+                <li>Date: <span className="font-weight-bold">21.11.2019</span></li>
+                <li>Address: <span className="font-weight-bold">Jämeräntaival 1 A</span></li>
+              </ul>
+            </Popup>
+          </Marker>
         ))}
       </Map>
     </div>

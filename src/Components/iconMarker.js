@@ -4,7 +4,7 @@ const iconMarker = new L.Icon({
     iconUrl: require('./marker.svg'),
     iconRetinaUrl: require('./marker.svg'),
     iconAnchor: [30, 75],
-    popupAnchor: null,
+    popupAnchor: [0, -75],
     shadowUrl: null,
     shadowSize: null,
     shadowAnchor: null,

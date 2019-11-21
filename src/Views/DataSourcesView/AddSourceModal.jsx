@@ -32,7 +32,7 @@ function AddSourceModal({setModalOpen, connectedServiceNames, addService}) {
         <div className="modal-dialog" role="document">
           <div className="modal-content">
             <div className="modal-header">
-              <h5 className="modal-title">Modal title</h5>
+              <h5 className="modal-title">Connect a Service</h5>
               <button type="button" className="close" onClick={() => setModalOpen(false)} aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>

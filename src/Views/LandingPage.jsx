@@ -16,7 +16,7 @@ function LandingPageItem({description, to, image, history}) {
             src="http://placehold.jp/150x150.png"
           />
         </div>
-        <p>{description}</p>
+        <p className="my-3">{description}</p>
       </div>
     </div>
   );
@@ -40,7 +40,7 @@ function LandingPage({ hasConnectedServices }) {
           </div>
       )}
       
-      <div className="row" style={{justifyContent: 'space-between'}}>
+      <div className="row justify-content-around">
         <LandingPageItem description="Connected Services" to="./connected-services" {...{history}}/>
         <LandingPageItem description="Location Map" to="./location-map" {...{history}}/>
         <LandingPageItem description="Profile" to="./profile" {...{history}}/>

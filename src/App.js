@@ -35,13 +35,6 @@ function App() {
                 <LandingPage />
             </div>
           </Route>
-          <Route exact path="/login">
-            <div className="App container-fluid">
-                <div className="row">
-                <Login/>
-                </div>
-            </div>
-          </Route>
         </Switch>
     </Router>
   );

@@ -1,6 +1,7 @@
 import  React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { addService as _addService } from '../../actions'
+import LoginView from '../LoginView'
 
 const avaibleServices = [
   'google',
@@ -10,6 +11,7 @@ const avaibleServices = [
 
 function AddSourceModal({setModalOpen, connectedServiceNames, addService}) {
   const [formState, setFormState] = useState({})
+  const [googleLoggedIn, setGoogleLoggedIn] = useState(false)
 
   const handleChange = (e) => {
     e.preventDefault(); 
@@ -49,11 +51,20 @@ function AddSourceModal({setModalOpen, connectedServiceNames, addService}) {
                   : <option key={s} value={s}>{s}</option>
                 )}
               </select>
+              {console.log('Show google login', (googleLoggedIn || !(formState.service && formState.service === 'google')) )}
+              {googleLoggedIn || !(formState.service && formState.service === 'google')
+                ? null
+                : <LoginView setGoogleLoggedIn={setGoogleLoggedIn}/>
+              }
+              {googleLoggedIn 
+                ? <div className="text-center mt-4 mb-2">Logged In with Google</div>
+                : null
+              }
             </div>
             <div className="modal-footer">
               <button 
                 className={formState.service ? 'btn btn-primary' : 'btn btn-primary disabled'}
-                disabled={formState.service ? false : true}
+                disabled={!formState.service || formState.service && formState.service === 'google' && !googleLoggedIn}
                 onClick={() => {
                   addService(formState.service)
                   setModalOpen(false)

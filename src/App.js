@@ -8,6 +8,7 @@ import {
 import MapContainer from './Components/MapContainer'
 import AppBar from './Components/AppBar'
 import DataSourceView from './Views/DataSourcesView/DataSourcesView'
+import Login from './Views/LoginView.jsx'
 import LandingPage from './Views/LandingPage'
 
 function App() {
@@ -33,6 +34,9 @@ function App() {
             <div className="App container">
                 <LandingPage />
             </div>
+          </Route>
+          <Route exact path="/login">
+            <Login/>
           </Route>
         </Switch>
     </Router>

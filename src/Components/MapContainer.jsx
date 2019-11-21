@@ -1,7 +1,10 @@
 import  React from 'react';
-import 'leaflet/dist/leaflet.css';
-import { Map, Marker, Popup, TileLayer, CircleMarker } from 'react-leaflet';
+import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
+import { connect } from 'react-redux';
+
 import iconMarker from './iconMarker';
+
+import 'leaflet/dist/leaflet.css';
 
 const position = [60.2052, 24.6522]
 
@@ -15,25 +18,44 @@ const mapProvider = ({
 	ext: 'png'
 })
 
-function MapWrapper() {
+function LocationMarker({pos}) {
+  return (
+    <Marker
+      position={position}
+      icon={iconMarker}
+    />
+  );
+}
+
+function MapWrapper({connectedServices}) {
   return(
-    <div className="col-sm-12 privacy-map-container">
+    <div className="col-sm-12 px-0 privacy-map-container">
       <Map center={position} zoom={13} zoomControl={false}>
         <TileLayer
           {...mapProvider}
         />
-        {/* <CircleMarker center={position} color="red" radius={15}>
-
-        </CircleMarker> */}
-
-        <Marker
-          position={position}
-          icon={iconMarker}
-        />
-
+        {connectedServices.map(service => service.positions.map(pos =>
+          <Marker
+            position={pos}
+            icon={iconMarker}
+            key={`${service.name}-${pos[0]}`}
+          >          
+            <Popup direction="top">
+              <ul className="location-details-list m-0 p-0">
+                <li>Source: <span className="font-weight-bold">{service.name}</span></li>
+                <li>Date: <span className="font-weight-bold">21.11.2019</span></li>
+                <li>Address: <span className="font-weight-bold">Jämeräntaival 1 A</span></li>
+              </ul>
+            </Popup>
+          </Marker>
+        ))}
       </Map>
     </div>
   );
 }
 
-export default MapWrapper
+const mapStateToProps = state => ({
+  connectedServices: state.connectedServices
+})
+
+export default connect(mapStateToProps)(MapWrapper);

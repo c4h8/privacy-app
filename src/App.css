@@ -5,11 +5,12 @@
 }
 
 .navbar-bs {
-  z-index: 9999;
+  z-index: 3;
   -webkit-box-shadow: 0px 10px 14px -10px rgba(0,0,0,0.46);
   -moz-box-shadow: 0px 10px 14px -10px rgba(0,0,0,0.46);
   box-shadow: 0px 10px 14px -10px rgba(0,0,0,0.46);
 }
+
 
 .form-signin{max-width:330px;margin:0 auto;padding:15px;}
 .form-signin .form-signin-heading,.form-signin .checkbox{margin-bottom:10px;}
@@ -20,3 +21,61 @@
 .account-wall{margin-top:20px;background-color:#f7f7f7;-moz-box-shadow:0 2px 2px rgba(0,0,0,0.3);-webkit-box-shadow:0 2px 2px rgba(0,0,0,0.3);box-shadow:0 2px 2px rgba(0,0,0,0.3);padding:40px 0 20px;}
 .login-title{color:#555;font-size:18px;font-weight:400;display:block;}
 .profile-img{width:96px;height:96px;display:block;-moz-border-radius:50%;-webkit-border-radius:50%;border-radius:50%;margin:0 auto 10px;}
+
+.connected-services-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between
+}
+
+.service-item {
+  display: flex;
+  align-items: center;
+}
+
+.service-item > h5 {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.location-details-list {
+  list-style-type: none;
+}
+
+.landing-page-item {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+
+  -webkit-box-shadow: 0px 10px 14px -10px rgba(0,0,0,0.46);
+  -moz-box-shadow: 0px 10px 14px -10px rgba(0,0,0,0.46);
+  box-shadow: 0px 10px 14px -10px rgba(0,0,0,0.46);
+}
+
+.square-parent {
+  position: relative;
+}
+
+.square-parent::after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+
+.square-content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.card-alert {
+  border-color: rgb(172, 83, 1)
+}
+
+
+.connected-services-header > button {
+
+}
+

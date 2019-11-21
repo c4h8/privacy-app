@@ -15,23 +15,23 @@ function App() {
     <Router>
       <AppBar />
         <Switch>
-          <Route path="/settings">
+          <Route path="/connected-services">
             <div className="App container">
               <div className="row">
                 <DataSourceView />
               </div>
             </div>
           </Route>
-          <Route path="/landing-page">
-            <div className="App container">
-                <LandingPage />
-            </div>
-          </Route>
-          <Route exact path="/">
+          <Route path="/location-map">
             <div className="App container-fluid">
               <div className="row">
                 <MapContainer />
               </div>
+            </div>
+          </Route>
+          <Route exact path="/">
+            <div className="App container">
+                <LandingPage />
             </div>
           </Route>
         </Switch>

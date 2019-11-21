@@ -4,11 +4,16 @@ import { Icon } from 'semantic-ui-react'
 
 function LandingPageItem({description, image}) {
   return (
-    <div className="col-sm-6 col-md-4 col-lg-2">
+    <div className="col-sm-6 col-md-4 col-lg-3 py-3 item-container">
       <div className="landing-page-item">
-        <img src="http://placehold.jp/150x150.png" />
-        {description}
+        <div className="square-parent mx-5 mx-md-3">
+          <img
+            className="square-content"
+            src="http://placehold.jp/150x150.png"
+          />
         </div>
+        <p>{description}</p>
+      </div>
     </div>
   );
 }
@@ -29,7 +34,7 @@ function LandingPage({ hasConnectedServices }) {
           </div>
       )}
       
-      <div className="row">
+      <div className="row" style={{justifyContent: 'space-between'}}>
         <LandingPageItem description="eka itemi"/>
         <LandingPageItem description="toka itemi"/>
         <LandingPageItem description="toka itemi"/>

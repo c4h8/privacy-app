@@ -15,7 +15,7 @@ function BugerMenu() {
         <ul className="navbar-nav mr-auto mt-2 mt-lg-2">
           <li className="nav-item">
             <NavLink 
-              to="/settings"
+              to="/connected-services"
               className="nav-link float-right"
               onClick={() => setMenuOpen(false)}
             >
@@ -25,7 +25,7 @@ function BugerMenu() {
           </li>
           <li className="nav-item">
             <NavLink 
-              exact to="/"
+              exact to="/location-map"
               className="nav-link float-right"
               onClick={() => setMenuOpen(false)}
             >
@@ -35,7 +35,7 @@ function BugerMenu() {
           </li>
           <li className="nav-item">
             <NavLink 
-              exact to="/landing-page"
+              exact to="/"
               className="nav-link float-right"
               onClick={() => setMenuOpen(false)}
             >
@@ -45,7 +45,7 @@ function BugerMenu() {
           </li>
           <li className="nav-item">
             <NavLink 
-              exact to="/landing-page"
+              exact to="/profile"
               className="nav-link float-right"
               onClick={() => setMenuOpen(false)}
             >

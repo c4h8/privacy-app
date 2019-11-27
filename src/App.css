@@ -47,9 +47,16 @@
   display: flex;
   flex-direction: column;
 
-  -webkit-box-shadow: 0px 10px 14px -10px rgba(0,0,0,0.46);
-  -moz-box-shadow: 0px 10px 14px -10px rgba(0,0,0,0.46);
-  box-shadow: 0px 10px 14px -10px rgba(0,0,0,0.46);
+  -webkit-box-shadow: 0px 8px 11px -2px rgba(0,0,0,0.29);
+  -moz-box-shadow: 0px 8px 11px -2px rgba(0,0,0,0.29);
+  box-shadow: 0px 8px 11px -2px rgba(0,0,0,0.29);
+}
+
+.landing-page-item:hover { 
+  -webkit-box-shadow: 0px 12px 13px -2px rgba(0,0,0,0.35);
+  -moz-box-shadow: 0px 12px 13px -2px rgba(0,0,0,0.35);
+  box-shadow: 0px 12px 13px -2px rgba(0,0,0,0.35);
+  transform: translateY(-5px)
 }
 
 .square-parent {
@@ -71,11 +78,41 @@
 }
 
 .card-alert {
-  border-color: rgb(172, 83, 1)
+  border-color: #f07e05;
+  background-color: #f07e05;
+  color: #FFF;
 }
 
+.map-filters {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 9999;
+}
 
-.connected-services-header > button {
+.map-filters > .map-filters-body {
+  width: 600px;
+  max-width: 50vw;
+  background-color: aliceblue;
+}
 
+.icon-container {
+  width: 100%;
+}
+
+.map-filters.open .icon-container {
+  background-color: #f07e05 !important;
+  width: 100%;
+}
+
+.map-filters .icon.orange.inverted {
+
+  position: relative;
+  color: #FFF;
+  background-color: #f07e05 !important;
+  top: 0;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
 }
 

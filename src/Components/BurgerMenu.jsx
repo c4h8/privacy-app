@@ -13,27 +13,7 @@ function BugerMenu() {
 
       <div className={ menuOpen ? 'navbar-collapse' : 'collapse navbar-collapse'}>
         <ul className="navbar-nav mr-auto mt-2 mt-lg-2">
-          <li className="nav-item">
-            <NavLink 
-              to="/connected-services"
-              className="nav-link float-right"
-              onClick={() => setMenuOpen(false)}
-            >
-              Connected Services
-              <Icon className="ml-3" name='exchange' />
-            </NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink 
-              exact to="/location-map"
-              className="nav-link float-right"
-              onClick={() => setMenuOpen(false)}
-            >
-              Map
-              <Icon className="ml-3" name='map outline' />
-            </NavLink>
-          </li>
-          <li className="nav-item">
+        <li className="nav-item">
             <NavLink 
               exact to="/"
               className="nav-link float-right"
@@ -51,6 +31,26 @@ function BugerMenu() {
             >
               Profile
               <Icon className="ml-3" name='user outline' />
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink 
+              exact to="/location-map"
+              className="nav-link float-right"
+              onClick={() => setMenuOpen(false)}
+            >
+              Map
+              <Icon className="ml-3" name='map outline' />
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink 
+              to="/connected-services"
+              className="nav-link float-right"
+              onClick={() => setMenuOpen(false)}
+            >
+              Connected Services
+              <Icon className="ml-3" name='exchange' />
             </NavLink>
           </li>
         </ul>

@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { Icon } from 'semantic-ui-react'
 import { useHistory  } from "react-router-dom";
 
+import NoConnectedServicesAlert from '../Components/NoConnectedServicesAlert';
+
 function LandingPageItem({description, to, image, history}) {
   return (
     <div className="col-sm-6 col-md-4 col-lg-3 py-3 item-container">
@@ -29,21 +31,12 @@ function LandingPage({ hasConnectedServices }) {
     <React.Fragment>
       {hasConnectedServices
         ? null
-        :(<div className="row">
-            <div className="col-12 my-4">
-              <div className="card card-alert">
-                <div className="card-body">
-                  Looks like you havent connected any services
-                </div>
-              </div>
-            </div>
-          </div>
-      )}
+        : <NoConnectedServicesAlert /> }
       
       <div className="row justify-content-around">
         <LandingPageItem description="Connected Services" to="./connected-services" {...{history}}/>
         <LandingPageItem description="Location Map" to="./location-map" {...{history}}/>
-        <LandingPageItem description="Profile" to="./profile" {...{history}}/>
+        <LandingPageItem description="Digital Profile" to="./profile" {...{history}}/>
       </div>
     </React.Fragment>
   )

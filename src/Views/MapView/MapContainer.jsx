@@ -63,12 +63,10 @@ function MapWrapper({connectedServices, serviceNames}) {
         {mapLayers.heatmap
           ? 
           (<HeatmapLayer
-            fitBoundsOnLoad
-            fitBoundsOnUpdate
             points={markers}
             longitudeExtractor={m => m.pos[1]}
             latitudeExtractor={m => m.pos[0]}
-            intensityExtractor={m => parseFloat(m.pos[2])}
+            intensityExtractor={m => 10}
           />)
           : null
         }

@@ -1,6 +1,6 @@
 const serviceNames = [
-  'google',
-  'facebook',
+  'Google',
+  'Facebook',
 ]
 
 export default serviceNames

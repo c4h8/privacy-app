@@ -15,7 +15,7 @@ function LandingPageItem({description, to, image, history}) {
         <div className="square-parent mx-5 mx-md-3">
           <img
             className="square-content"
-            src="http://placehold.jp/150x150.png"
+            src={image}
           />
         </div>
         <p className="my-3">{description}</p>
@@ -30,13 +30,13 @@ function LandingPage({ hasConnectedServices }) {
   return(
     <React.Fragment>
       {hasConnectedServices
-        ? null
+      ? <div style={{padding: '30px'}}></div>
         : <NoConnectedServicesAlert /> }
       
       <div className="row justify-content-around">
-        <LandingPageItem description="Connected Services" to="./connected-services" {...{history}}/>
-        <LandingPageItem description="Location Map" to="./location-map" {...{history}}/>
-        <LandingPageItem description="Digital Profile" to="./profile" {...{history}}/>
+        <LandingPageItem description="Connected Services" image={require('./service.png')} to="./connected-services" {...{history}}/>
+        <LandingPageItem description="Location Map" image={require('./map.jpg')} to="./location-map" {...{history}}/>
+        <LandingPageItem description="Digital Profile" image={require('./profile.png')} to="./profile" {...{history}}/>
       </div>
     </React.Fragment>
   )

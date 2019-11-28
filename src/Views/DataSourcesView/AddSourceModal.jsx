@@ -4,9 +4,8 @@ import { addService as _addService } from '../../actions'
 import LoginView from '../LoginView'
 
 const avaibleServices = [
-  'google',
-  'facebook',
-  'asd'
+  'Google',
+  'Facebook'
 ]
 
 function AddSourceModal({setModalOpen, connectedServiceNames, addService}) {
@@ -51,8 +50,8 @@ function AddSourceModal({setModalOpen, connectedServiceNames, addService}) {
                   : <option key={s} value={s}>{s}</option>
                 )}
               </select>
-              {console.log('Show google login', (googleLoggedIn || !(formState.service && formState.service === 'google')) )}
-              {googleLoggedIn || !(formState.service && formState.service === 'google')
+              {console.log('Show Google login', (googleLoggedIn || !(formState.service && formState.service === 'Google')) )}
+              {googleLoggedIn || !(formState.service && formState.service === 'Google')
                 ? null
                 : <LoginView setGoogleLoggedIn={setGoogleLoggedIn}/>
               }

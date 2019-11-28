@@ -10,7 +10,7 @@ function DataSourceItem({ name, iconName, connected, removeService }) {
       <div className="service-item">
         <Icon circular className="mr-3" name={iconName} size="big" />
         <h5>{name}</h5>
-        <button className="float-right" onClick={() => removeService(name)}>remove</button>
+        <button className="float-right" style={{margin: '10px'}} onClick={() => removeService(name)}>Remove</button>
       </div>
     </li>
   )
@@ -18,7 +18,7 @@ function DataSourceItem({ name, iconName, connected, removeService }) {
 
 function NoDataSourcesItem({}) {
   return (
-    <li class="list-group-item">
+    <li className="list-group-item">
       <p className="font-weight-light mr-3">No services connected</p>
     </li>
   )

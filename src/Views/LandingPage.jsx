@@ -30,7 +30,7 @@ function LandingPage({ hasConnectedServices }) {
   return(
     <React.Fragment>
       {hasConnectedServices
-        ? null
+      ? <div style={{padding: '30px'}}></div>
         : <NoConnectedServicesAlert /> }
       
       <div className="row justify-content-around">

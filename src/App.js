@@ -9,28 +9,48 @@ import MapContainer from './Components/MapContainer'
 import AppBar from './Components/AppBar'
 import DataSourceView from './Views/DataSourcesView/DataSourcesView'
 import Login from './Views/LoginView.jsx'
+import LandingPage from './Views/LandingPage'
+import ProfileView from './Views/ProfileView/ProfileView'
 
 function App() {
   return (
     <Router>
-      <div className="px-0 App container">
       <AppBar />
         <Switch>
-          <Route path="/settings">
-            <div className="row">
-              <DataSourceView />
+          <Route path="/connected-services">
+            <div className="App container">
+              <div className="row">
+                <DataSourceView />
+              </div>
+            </div>
+          </Route>
+          <Route path="/location-map">
+            <div className="App container-fluid">
+              <div className="row">
+                <MapContainer />
+              </div>
+            </div>
+          </Route>
+          <Route path="/profile">
+            <div className="App container">
+              <div className="row">
+                <ProfileView />
+              </div>
             </div>
           </Route>
           <Route exact path="/">
-            <div className="row">
-              <MapContainer />
+            <div className="App container">
+                <LandingPage />
             </div>
           </Route>
           <Route exact path="/login">
-            <Login/>
+            <div className="App container-fluid">
+                <div className="row">
+                <Login/>
+                </div>
+            </div>
           </Route>
         </Switch>
-      </div>
     </Router>
   );
 }

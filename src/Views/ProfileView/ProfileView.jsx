@@ -10,12 +10,12 @@ function FakeProfile() {
     <React.Fragment>
       <li className="list-group-item">
         <div className="row">
-        <div className="col-sm-12 col-md-3">
-          Age
-        </div>
-        <div className="col-sm-12 col-md-9">
-          20-25 Years
-        </div>
+          <div className="col-sm-12 col-md-3">
+            Age
+          </div>
+          <div className="col-sm-12 col-md-9">
+            20-25 Years
+          </div>
         </div>
       </li>
       <li className="list-group-item">
@@ -40,19 +40,19 @@ function FakeProfile() {
       </li>
       <li className="list-group-item">
         <div className="row">
-        <div className="col-sm-12 col-md-3">
-          Interests
-        </div>
-        <div className="col-sm-12 col-md-9" style={{whiteSpace: 'pre-line'}}>
-          <span>{`Adventure Games
-            Audio Equipment
-            Books & Literature
-            Football
-            Software Engineering
-            Travelling
-            Web Development`}
-          </span>
-        </div>
+          <div className="col-sm-12 col-md-3">
+            Interests
+          </div>
+          <div className="col-sm-12 col-md-9" style={{whiteSpace: 'pre-line'}}>
+            <span>{`Adventure Games
+              Audio Equipment
+              Books & Literature
+              Football
+              Software Engineering
+              Travelling
+              Web Development`}
+            </span>
+          </div>
         </div>
       </li>
     </React.Fragment>

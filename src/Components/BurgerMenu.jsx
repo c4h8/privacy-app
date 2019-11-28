@@ -25,16 +25,6 @@ function BugerMenu() {
           </li>
           <li className="nav-item">
             <NavLink 
-              to="/connected-services"
-              className="nav-link float-right"
-              onClick={() => setMenuOpen(false)}
-            >
-              Connected Services
-              <Icon className="ml-3" name='exchange' />
-            </NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink 
               exact to="/profile"
               className="nav-link float-right"
               onClick={() => setMenuOpen(false)}
@@ -51,6 +41,16 @@ function BugerMenu() {
             >
               Map
               <Icon className="ml-3" name='map outline' />
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink 
+              to="/connected-services"
+              className="nav-link float-right"
+              onClick={() => setMenuOpen(false)}
+            >
+              Connected Services
+              <Icon className="ml-3" name='exchange' />
             </NavLink>
           </li>
         </ul>

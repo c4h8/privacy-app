@@ -63,7 +63,7 @@ function AddSourceModal({setModalOpen, connectedServiceNames, addService}) {
             <div className="modal-footer">
               <button 
                 className={formState.service ? 'btn btn-primary' : 'btn btn-primary disabled'}
-                disabled={!formState.service || (formState.service && formState.service === 'Google' && !googleLoggedIn)}
+                disabled={!formState.service || (formState.service && formState.service === 'google' && !googleLoggedIn)}
                 onClick={() => {
                   addService(formState.service)
                   setModalOpen(false)

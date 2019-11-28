@@ -3,6 +3,7 @@ import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 import { connect } from 'react-redux';
 import { Icon } from 'semantic-ui-react';
 import Switch from "react-switch";
+import HeatmapLayer from 'react-leaflet-heatmap-layer';
 
 import iconMarker from './iconMarker';
 import FilterMenu from './FilterMenu';
@@ -25,6 +26,10 @@ function MapWrapper({connectedServices, serviceNames}) {
   const [filterListOpen, setFilterListOpen] = useState(false)
   const [hiddenServices, setHiddenServices] = useState({})
   const [markers, setMarkers] = useState([])
+  const [mapLayers, setMapLayers] = useState({
+    heatmap: false,
+    locationMarkers: true,
+  })
 
   useEffect(() => {
     const _markers = connectedServices
@@ -41,27 +46,50 @@ function MapWrapper({connectedServices, serviceNames}) {
 
   return(
     <div className="col-sm-12 px-0 privacy-map-container">
-      <FilterMenu open={filterListOpen} setOpen={setFilterListOpen} serviceNames={serviceNames} setHiddenServices={setHiddenServices} hiddenServices={hiddenServices} />
+      <FilterMenu
+        open={filterListOpen}
+        setOpen={setFilterListOpen}
+        serviceNames={serviceNames}
+        setHiddenServices={setHiddenServices}
+        hiddenServices={hiddenServices}
+        mapLayers={mapLayers}
+        setMapLayers={setMapLayers}
+      />
 
       <Map center={position} zoom={10} zoomControl={false} style={{zIndex: 50}}>
         <TileLayer
           {...mapProvider}
         />
-        {markers.map(m => (
-          <Marker
-            position={m.pos}
-            icon={iconMarker}
-            key={m.key}
-          >          
-            <Popup direction="top">
-              <ul className="location-details-list m-0 p-0">
-                <li>Date: <span className="font-weight-bold">21.11.2019</span></li>
-                <li>Address: <span className="font-weight-bold">Jämeräntaival 1 A</span></li>
-                <li>Source: <span className="font-weight-bold">{m.serviceName}</span></li>
-              </ul>
-            </Popup>
-          </Marker>
-        ))}
+        {mapLayers.heatmap
+          ? 
+          (<HeatmapLayer
+            fitBoundsOnLoad
+            fitBoundsOnUpdate
+            points={markers}
+            longitudeExtractor={m => m.pos[1]}
+            latitudeExtractor={m => m.pos[0]}
+            intensityExtractor={m => parseFloat(m.pos[2])}
+          />)
+          : null
+        }
+        {mapLayers.locationMarkers ?        
+          (markers.map(m => (
+            <Marker
+              position={m.pos}
+              icon={iconMarker}
+              key={m.key}
+            >          
+              <Popup direction="top">
+                <ul className="location-details-list m-0 p-0">
+                  <li>Date: <span className="font-weight-bold">21.11.2019</span></li>
+                  <li>Address: <span className="font-weight-bold">Jämeräntaival 1 A</span></li>
+                  <li>Source: <span className="font-weight-bold">{m.serviceName}</span></li>
+                </ul>
+              </Popup>
+            </Marker>
+          )))
+          :null
+        }
       </Map>
     </div>
   );

@@ -21,18 +21,16 @@ function FilterMenu({open, setOpen, serviceNames, hiddenServices, setHiddenServi
         ? null
         : (
           <div className="col-12 map-filters-body">
-            {serviceNames.map(name => (
-              <div>
-                <label>
-                  <span>{name}</span>
-                  {console.log('', name, !serviceNames[name])}
-                  {console.log('service names', serviceNames)}
-                  <Switch
-                    onChange={() => setHiddenServices(state => ({...state, [name]: !hiddenServices[name]}))}
-                    checked={!hiddenServices[name]} />
-                </label>
-              </div>
-            ))}
+            <ul className="list-group-flush p-0">
+              {serviceNames.map(name => (
+                <li className="list-group-item d-flex justify-content-between">
+                    <span>{name}</span>
+                    <Switch
+                      onChange={() => setHiddenServices(state => ({...state, [name]: !hiddenServices[name]}))}
+                      checked={!hiddenServices[name]} />
+                </li>
+              ))}
+            </ul>
           </div>
         )
       }

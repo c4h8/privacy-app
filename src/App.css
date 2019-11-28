@@ -87,13 +87,13 @@
   position: absolute;
   top: 20px;
   left: 20px;
-  z-index: 9999;
+  z-index: 300;
 }
 
 .map-filters > .map-filters-body {
   width: 600px;
   max-width: 50vw;
-  background-color: aliceblue;
+  background-color: #FFF;
 }
 
 .icon-container {
@@ -101,12 +101,11 @@
 }
 
 .map-filters.open .icon-container {
-  background-color: #f07e05 !important;
+  background-color: #f2711c !important;
   width: 100%;
 }
 
 .map-filters .icon.orange.inverted {
-
   position: relative;
   color: #FFF;
   background-color: #f07e05 !important;

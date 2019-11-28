@@ -5,6 +5,7 @@ import { Icon } from 'semantic-ui-react';
 import Switch from "react-switch";
 
 import iconMarker from './iconMarker';
+import FilterMenu from './FilterMenu';
 
 import 'leaflet/dist/leaflet.css';
 
@@ -19,44 +20,6 @@ const mapProvider = ({
 	maxZoom: 20,
 	ext: 'png'
 })
-
-function FilterButton({open, setOpen, serviceNames, hiddenServices, setHiddenServices}) {
-  return(
-    <div className={open ? 'map-filters open' : 'map-filters'}>
-      <div className="icon-container">
-        <Icon circular
-          inverted size="large"
-          name="sliders horizontal"
-          className="icon orange"
-          onClick={() => setOpen(!open)}
-        />
-        {open
-          ? <span>{'   Map options'}</span>
-          : null
-        }
-      </div>
-      {(!open)
-        ? null
-        : (
-          <div className="col-12 map-filters-body">
-            {serviceNames.map(name => (
-              <div>
-                <label>
-                  <span>{name}</span>
-                  {console.log('', name, !serviceNames[name])}
-                  {console.log('service names', serviceNames)}
-                  <Switch
-                    onChange={() => setHiddenServices(state => ({...state, [name]: !hiddenServices[name]}))}
-                    checked={!hiddenServices[name]} />
-                </label>
-              </div>
-            ))}
-          </div>
-        )
-      }
-    </div>
-  )
-}
 
 function MapWrapper({connectedServices, serviceNames}) {
   const [filterListOpen, setFilterListOpen] = useState(false)
@@ -78,7 +41,9 @@ function MapWrapper({connectedServices, serviceNames}) {
 
   return(
     <div className="col-sm-12 px-0 privacy-map-container">
-      <Map center={position} zoom={10} zoomControl={false}>
+      <FilterMenu open={filterListOpen} setOpen={setFilterListOpen} serviceNames={serviceNames} setHiddenServices={setHiddenServices} hiddenServices={hiddenServices} />
+
+      <Map center={position} zoom={10} zoomControl={false} style={{zIndex: 50}}>
         <TileLayer
           {...mapProvider}
         />
@@ -98,7 +63,6 @@ function MapWrapper({connectedServices, serviceNames}) {
           </Marker>
         ))}
       </Map>
-      <FilterButton open={filterListOpen} setOpen={setFilterListOpen} serviceNames={serviceNames} setHiddenServices={setHiddenServices} hiddenServices={hiddenServices} />
     </div>
   );
 }

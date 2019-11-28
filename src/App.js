@@ -5,10 +5,9 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import MapContainer from './Components/MapContainer'
+import MapContainer from './Views/MapView/MapContainer'
 import AppBar from './Components/AppBar'
 import DataSourceView from './Views/DataSourcesView/DataSourcesView'
-import Login from './Views/LoginView.jsx'
 import LandingPage from './Views/LandingPage'
 import ProfileView from './Views/ProfileView/ProfileView'
 

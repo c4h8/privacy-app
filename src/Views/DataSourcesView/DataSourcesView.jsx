@@ -1,5 +1,6 @@
 import  React from 'react';
 
+<<<<<<< Updated upstream
 const sources = [
   {
     name: 'facebook',
@@ -18,6 +19,19 @@ const sources = [
     connected: false
   },
 ]
+=======
+function DataSourceItem({ name, iconName, connected, removeService }) {
+  return (
+    <li class="list-group-item">
+      <div className="service-item">
+        <Icon circular className="mr-3" name={iconName} size="big" />
+        <h5>{name}</h5>
+        <button className="float-right" style={{margin: '10px'}} onClick={() => removeService(name)}>Remove</button>
+      </div>
+    </li>
+  )
+}
+>>>>>>> Stashed changes
 
 function DataSourceItem({ name, connected }) {
   return (

@@ -5,7 +5,7 @@ function NavBar() {
 
   return (
     <nav className="navbar navbar-dark bg-dark navbar-bs">
-      <a class="navbar-brand" href="#">Privacy App</a>
+      <a className="navbar-brand" href="/">MyProfiling</a>
       <BurgerMenu />
     </nav>
   );

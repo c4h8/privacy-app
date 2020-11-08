@@ -3,7 +3,7 @@
 This is a mock-up of a service that provides the user tools to visualize and manage
 data that third parties collect from them via the internet.
 
-Demo avaible at [heroku](https://dashboard.heroku.com/apps/privacy-app-mvp)
+Demo avaible at [heroku](https://privacy-app-mvp.herokuapp.com/)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
